@@ -5,21 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LeaveDesk</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg:#F7F6F3; --surface:#FFF; --border:#E4E2DC; --border-strong:#C8C5BC;
-  --text:#1A1916; --text-2:#5C5A54; --text-3:#9C9A94;
-  --accent:#1A6B4A; --accent-light:#E6F4EE; --accent-text:#0D4A32;
-  --danger:#C0392B; --danger-light:#FDECEA;
-  --warn:#B07A1A; --warn-light:#FDF6E3;
-  --blue:#1A4B8B; --blue-light:#E8EFF8;
-  --r:10px; --rl:14px;
-}
+:root{--bg:#F7F6F3;--surface:#FFF;--border:#E4E2DC;--border-strong:#C8C5BC;--text:#1A1916;--text-2:#5C5A54;--text-3:#9C9A94;--accent:#1A6B4A;--accent-light:#E6F4EE;--accent-text:#0D4A32;--danger:#C0392B;--danger-light:#FDECEA;--warn:#B07A1A;--warn-light:#FDF6E3;--blue:#1A4B8B;--blue-light:#E8EFF8;--r:10px;--rl:14px}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:15px}
-
-/* NAV */
 .topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:0 1.5rem;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
 .brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;color:var(--text);text-decoration:none}
 .brand-dot{width:28px;height:28px;background:var(--accent);border-radius:7px;display:flex;align-items:center;justify-content:center}
@@ -28,17 +18,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .ntab{padding:6px 14px;border-radius:8px;border:1px solid transparent;background:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--text-2);cursor:pointer;transition:all .15s}
 .ntab:hover{background:var(--bg);color:var(--text)}
 .ntab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-
-/* PAGES */
-.page{display:none}
-.page.active{display:block}
-
-/* ── FORM PAGE ── */
+.page{display:none}.page.active{display:block}
 .form-wrap{max-width:560px;margin:0 auto;padding:2.5rem 1.25rem 4rem}
 .eyebrow{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
 .pg-title{font-size:22px;font-weight:600;margin-bottom:4px}
 .pg-sub{font-size:14px;color:var(--text-2);margin-bottom:2rem;line-height:1.5}
-
 .fcard{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:1.4rem;margin-bottom:1rem}
 .sec-label{font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:1rem;padding-bottom:8px;border-bottom:1px solid var(--border)}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -52,18 +36,15 @@ input.err,select.err,textarea.err{border-color:var(--danger);box-shadow:0 0 0 3p
 textarea{resize:vertical;min-height:70px}
 .emsg{font-size:12px;color:var(--danger);display:none}
 .emsg.show{display:block}
-
 .preview-strip{display:none;background:var(--accent-light);border:1px solid #B2D8C8;border-radius:var(--r);padding:10px 14px;margin-top:12px;gap:10px;align-items:flex-start}
 .preview-strip.show{display:flex}
 .prev-dot{width:10px;height:10px;background:var(--accent);border-radius:50%;margin-top:4px;flex-shrink:0}
 .prev-name{font-size:13px;font-weight:600;color:var(--accent-text)}
 .prev-meta{font-size:12px;color:var(--accent);margin-top:2px}
-
 .submit-btn{width:100%;padding:12px;background:var(--accent);color:#fff;border:none;border-radius:var(--r);font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:1rem;transition:background .15s}
 .submit-btn:hover{background:#155a3c}
 .submit-btn:disabled{background:var(--text-3);cursor:not-allowed}
 .submit-btn svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-
 .success-box{display:none;background:var(--accent-light);border:1px solid #B2D8C8;border-radius:var(--rl);padding:2rem;text-align:center;margin-top:1rem}
 .success-box.show{display:block}
 .sicon{width:52px;height:52px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
@@ -73,49 +54,38 @@ textarea{resize:vertical;min-height:70px}
 .refcode{display:inline-block;margin-top:12px;background:var(--surface);border:1px solid #B2D8C8;border-radius:6px;padding:4px 12px;font-family:'DM Mono',monospace;font-size:13px;color:var(--accent-text);font-weight:500}
 .another{margin-top:1rem;padding:8px 20px;background:none;border:1px solid var(--border-strong);border-radius:var(--r);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--text-2);cursor:pointer}
 .another:hover{background:var(--bg)}
-
-/* LOADING SPINNER */
 .spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-
-/* ── DASHBOARD ── */
 .dash-wrap{max-width:920px;margin:0 auto;padding:2.5rem 1.25rem 4rem}
 .dash-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.5rem;gap:1rem;flex-wrap:wrap}
-
 .stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:1.5rem}
 .stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px}
 .slabel{font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:4px}
 .sval{font-size:28px;font-weight:600;color:var(--text)}
-.sval.p{color:var(--warn)} .sval.a{color:var(--accent)} .sval.r{color:var(--danger)}
-
+.sval.p{color:var(--warn)}.sval.a{color:var(--accent)}.sval.r{color:var(--danger)}
 .filter-row{display:flex;gap:6px;margin-bottom:1rem;flex-wrap:wrap;align-items:center}
 .pill{padding:5px 14px;border-radius:20px;border:1px solid var(--border-strong);background:var(--surface);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--text-2);cursor:pointer;transition:all .12s}
 .pill:hover{border-color:var(--accent);color:var(--accent)}
 .pill.active{background:var(--accent);border-color:var(--accent);color:#fff}
 .refresh-btn{margin-left:auto;display:flex;align-items:center;gap:6px;padding:5px 12px;border:1px solid var(--border-strong);border-radius:20px;background:var(--surface);font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text-2);cursor:pointer;transition:all .12s}
 .refresh-btn:hover{border-color:var(--accent);color:var(--accent)}
-.refresh-btn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .4s}
+.refresh-btn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .5s}
 .refresh-btn.spinning svg{transform:rotate(360deg)}
-
-/* Share bar */
 .share-bar{background:var(--blue-light);border:1px solid #C0D0E8;border-radius:var(--rl);padding:14px 16px;display:flex;align-items:center;gap:12px;margin-bottom:1.5rem;flex-wrap:wrap}
 .sbar-icon svg{width:20px;height:20px;stroke:var(--blue);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .sbar-text{flex:1;min-width:160px}
 .sbar-text strong{font-size:13px;color:var(--blue);display:block;font-weight:600}
 .sbar-text span{font-size:12px;color:#3A5F9A}
 .url-row{display:flex;gap:6px;align-items:center}
-.url-box{font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);background:var(--surface);border:1px solid #C0D0E8;border-radius:7px;padding:6px 10px;width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;user-select:all;border:none;outline:none;cursor:text}
+.url-box{font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);background:var(--surface);border:1px solid #C0D0E8;border-radius:7px;padding:6px 10px;width:220px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;outline:none;cursor:text}
 .copy-btn{padding:6px 12px;background:var(--blue);color:#fff;border:none;border-radius:7px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;transition:background .12s}
 .copy-btn:hover{background:#1450a0}
-
-/* Cards */
 .req-list{display:flex;flex-direction:column;gap:10px}
 .rcard{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;transition:border-color .15s}
 .rcard:hover{border-color:var(--border-strong)}
 .rcard.s-approved{border-left:3px solid var(--accent)}
 .rcard.s-rejected{border-left:3px solid var(--danger)}
 .rcard.s-pending{border-left:3px solid var(--warn)}
-
 .rc-head{display:flex;align-items:center;gap:12px;padding:14px 16px 12px;cursor:pointer;user-select:none}
 .avatar{width:38px;height:38px;border-radius:50%;background:var(--blue-light);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--blue);flex-shrink:0}
 .rc-main{flex:1;min-width:0}
@@ -130,7 +100,6 @@ textarea{resize:vertical;min-height:70px}
 .xbtn:hover{background:var(--bg);color:var(--text)}
 .xbtn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
 .xbtn.open svg{transform:rotate(180deg)}
-
 .rc-body{display:none;border-top:1px solid var(--border);padding:14px 16px}
 .rc-body.open{display:block}
 .detail-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px 20px;margin-bottom:12px}
@@ -150,43 +119,26 @@ textarea{resize:vertical;min-height:70px}
 .btn-undo{background:var(--surface);color:var(--text-2);border-color:var(--border-strong)}
 .btn-undo:hover{background:var(--bg)}
 .anote{font-size:12px;color:var(--text-3)}
-
-/* Config banner */
-.config-banner{background:#FFF8E7;border:1px solid #F5C842;border-radius:var(--rl);padding:14px 16px;margin-bottom:1.5rem;display:flex;gap:12px;align-items:flex-start}
-.config-banner svg{width:20px;height:20px;stroke:#B07A1A;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;margin-top:1px}
-.config-banner p{font-size:13px;color:#7A5410;line-height:1.5}
-.config-banner strong{color:#5A3C08;font-weight:600}
-.config-banner code{font-family:'DM Mono',monospace;font-size:12px;background:#FDE68A;padding:1px 5px;border-radius:4px;color:#5A3C08}
-
 .empty{text-align:center;padding:3rem 1rem;color:var(--text-3)}
 .empty svg{width:48px;height:48px;stroke:var(--border-strong);fill:none;stroke-width:1.5;margin-bottom:12px}
 .empty p{font-size:14px}
-
-/* Loading overlay */
 .loading-row{display:flex;align-items:center;gap:10px;padding:1.5rem;color:var(--text-3);font-size:14px}
 .ld-spin{width:18px;height:18px;border:2px solid var(--border-strong);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite;flex-shrink:0}
-
-@media(max-width:540px){
-  .frow{grid-template-columns:1fr}
-  .topbar{padding:0 1rem}
-  .form-wrap,.dash-wrap{padding:1.5rem 1rem 3rem}
-  .dash-head{flex-direction:column}
-  .url-box{width:140px}
-}
+.error-banner{background:var(--danger-light);border:1px solid #f5c6c6;border-radius:var(--r);padding:12px 16px;font-size:13px;color:var(--danger);margin-bottom:1rem;display:none}
+.error-banner.show{display:block}
+@media(max-width:540px){.frow{grid-template-columns:1fr}.topbar{padding:0 1rem}.form-wrap,.dash-wrap{padding:1.5rem 1rem 3rem}.url-box{width:150px}}
 @keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
 .rcard{animation:fadeIn .18s ease}
 </style>
 </head>
 <body>
 
-<!-- ── CONFIG: paste your Apps Script URL here ── -->
 <script>
-  // ▼▼▼ REPLACE THIS WITH YOUR GOOGLE APPS SCRIPT WEB APP URL ▼▼▼
-  const SCRIPT_URL = "https://script.google.com/a/macros/orangehealth.in/s/AKfycbzBapk2uo9d5KHy3ltvgaRO4UGKg2xrOE9C3s1mDZ8nEppE6ErIx0q51EDVyadU_8Q/exec";
-  // ▲▲▲ See README.md Step 1 for how to get this URL ▲▲▲
+  // ▼▼▼ PASTE YOUR GOOGLE APPS SCRIPT /exec URL HERE ▼▼▼
+  var SCRIPT_URL = "https://script.google.com/a/macros/orangehealth.in/s/AKfycbyeJEZ6DnkhK4MDnneTwSm2scBJKTDtiRNMUoFotr_xDPmNcG0uqFRtr3YOELvMWP7n/exec";
+  // ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
 </script>
 
-<!-- NAV -->
 <nav class="topbar">
   <a class="brand" href="#">
     <div class="brand-dot">
@@ -195,19 +147,17 @@ textarea{resize:vertical;min-height:70px}
     LeaveDesk
   </a>
   <div class="nav-tabs">
-    <button class="ntab active" id="tab-form" onclick="showPage('form')">Request leave</button>
-    <button class="ntab" id="tab-mgr" onclick="showPage('manager')">Manager view</button>
+    <button class="ntab active" id="tab-form" onclick="showPage('form',this)">Request leave</button>
+    <button class="ntab" id="tab-mgr" onclick="showPage('manager',this)">Manager view</button>
   </div>
 </nav>
 
-<!-- ═══════════════════════════════
-     EMPLOYEE FORM
-═══════════════════════════════ -->
+<!-- FORM PAGE -->
 <div class="page active" id="page-form">
   <div class="form-wrap">
     <div class="eyebrow">Leave request</div>
     <h1 class="pg-title">Apply for leave</h1>
-    <p class="pg-sub">Fill in the form — your manager will be notified and review your request.</p>
+    <p class="pg-sub">Fill in the form — your manager will review and approve.</p>
 
     <div id="form-body">
       <div class="fcard">
@@ -231,7 +181,7 @@ textarea{resize:vertical;min-height:70px}
         <div class="frow">
           <div class="fg">
             <label for="f-from">From date</label>
-            <input type="date" id="f-from" oninput="livePreview();syncDateMin()">
+            <input type="date" id="f-from" oninput="livePreview();syncMin()">
             <span class="emsg" id="e-from">Select a start date</span>
           </div>
           <div class="fg">
@@ -262,10 +212,9 @@ textarea{resize:vertical;min-height:70px}
         </div>
         <div class="fg full">
           <label for="f-purpose">Purpose / reason</label>
-          <textarea id="f-purpose" placeholder="Briefly describe your reason for leave..." oninput="livePreview()"></textarea>
+          <textarea id="f-purpose" placeholder="Briefly describe your reason..." oninput="livePreview()"></textarea>
           <span class="emsg" id="e-purpose">Please provide a reason</span>
         </div>
-
         <div class="preview-strip" id="preview-strip">
           <div class="prev-dot"></div>
           <div>
@@ -274,6 +223,8 @@ textarea{resize:vertical;min-height:70px}
           </div>
         </div>
       </div>
+
+      <div class="error-banner" id="form-error"></div>
 
       <button class="submit-btn" id="submit-btn" onclick="submitRequest()">
         <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
@@ -291,12 +242,9 @@ textarea{resize:vertical;min-height:70px}
   </div>
 </div>
 
-<!-- ═══════════════════════════════
-     MANAGER DASHBOARD
-═══════════════════════════════ -->
+<!-- MANAGER PAGE -->
 <div class="page" id="page-manager">
   <div class="dash-wrap">
-
     <div class="dash-head">
       <div>
         <div class="eyebrow">Manager view</div>
@@ -305,28 +253,20 @@ textarea{resize:vertical;min-height:70px}
       </div>
     </div>
 
-    <!-- Config warning (shown only if URL not set) -->
-    <div class="config-banner" id="config-banner" style="display:none">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      <p><strong>Setup required:</strong> Open <code>index.html</code> in a text editor and replace <code>https://script.google.com/a/macros/orangehealth.in/s/AKfycbzh0VPM4brQn17RDShYhdD6--5dYHBG7Dt2sALJmHoFY7EEPtwLeI3Eqyvxhold7I8/exec</code> with your Google Apps Script Web App URL. See <strong>README.md</strong> for step-by-step instructions.</p>
-    </div>
-
-    <!-- Share bar -->
     <div class="share-bar">
       <div class="sbar-icon">
         <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
       </div>
       <div class="sbar-text">
         <strong>Share this link with your team</strong>
-        <span>Anyone can open this link and submit a leave request</span>
+        <span>Anyone can tap this link and submit a leave request</span>
       </div>
       <div class="url-row">
-        <input class="url-box" id="share-url" readonly value="your GitHub Pages URL" onclick="this.select()">
+        <input class="url-box" id="share-url" readonly onclick="this.select()">
         <button class="copy-btn" onclick="copyLink(this)">Copy</button>
       </div>
     </div>
 
-    <!-- Stats -->
     <div class="stats-row">
       <div class="stat"><div class="slabel">Total</div><div class="sval" id="st-total">—</div></div>
       <div class="stat"><div class="slabel">Pending</div><div class="sval p" id="st-pending">—</div></div>
@@ -334,7 +274,6 @@ textarea{resize:vertical;min-height:70px}
       <div class="stat"><div class="slabel">Rejected</div><div class="sval r" id="st-rejected">—</div></div>
     </div>
 
-    <!-- Filters -->
     <div class="filter-row">
       <button class="pill active" onclick="setFilter('all',this)">All</button>
       <button class="pill" onclick="setFilter('pending',this)">Pending</button>
@@ -347,111 +286,154 @@ textarea{resize:vertical;min-height:70px}
     </div>
 
     <div class="req-list" id="req-list">
-      <div class="loading-row"><div class="ld-spin"></div> Loading requests…</div>
+      <div class="loading-row"><div class="ld-spin"></div> Loading…</div>
     </div>
   </div>
 </div>
 
 <script>
-// ── State ──────────────────────────────────────────────────────
-let allRequests = [];
-let activeFilter = 'all';
-let expanded = new Set();
-let isConfigured = SCRIPT_URL !== "YOUR_APPS_SCRIPT_URL_HERE";
+var allRequests = [];
+var activeFilter = 'all';
+var expanded = new Set();
 
-// ── Nav ────────────────────────────────────────────────────────
-function showPage(name) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.ntab').forEach(b => b.classList.remove('active'));
-  document.getElementById('page-' + name).classList.add('active');
-  document.getElementById('tab-' + (name === 'form' ? 'form' : 'mgr')).classList.add('active');
+// ── Navigation ────────────────────────────────────────────────
+function showPage(name, btn) {
+  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});
+  document.querySelectorAll('.ntab').forEach(function(b){b.classList.remove('active')});
+  document.getElementById('page-'+name).classList.add('active');
+  btn.classList.add('active');
   if (name === 'manager') {
-    document.getElementById('share-url').value = window.location.href.split('#')[0];
-    if (!isConfigured) document.getElementById('config-banner').style.display = 'flex';
+    document.getElementById('share-url').value = window.location.href.split('?')[0].split('#')[0];
     loadRequests();
   }
 }
 
-// ── Helpers ────────────────────────────────────────────────────
+// ── Helpers ───────────────────────────────────────────────────
 function fmtDate(s) {
   if (!s) return '—';
-  const d = new Date(s + (s.includes('T') ? '' : 'T00:00:00'));
-  return d.toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' });
+  try {
+    var d = new Date(String(s).includes('T') ? s : s+'T00:00:00');
+    return d.toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});
+  } catch(e){ return s; }
 }
-function daysBetween(a, b) {
-  return Math.round((new Date(b+'T00:00:00') - new Date(a+'T00:00:00')) / 86400000) + 1;
+function daysBetween(a,b){
+  return Math.round((new Date(b+'T00:00:00')-new Date(a+'T00:00:00'))/86400000)+1;
 }
-function initials(n) {
-  const p = n.trim().split(/\s+/);
-  return p.length >= 2 ? (p[0][0]+p[p.length-1][0]).toUpperCase() : n.slice(0,2).toUpperCase();
+function initials(n){
+  var p=n.trim().split(/\s+/);
+  return p.length>=2?(p[0][0]+p[p.length-1][0]).toUpperCase():n.slice(0,2).toUpperCase();
 }
-function toGCalDate(s) { return s.replace(/-/g,''); }
-
-function buildCalUrl(r) {
-  const title = encodeURIComponent(r.Name + ' Leave');
-  const start = toGCalDate(r.From);
-  const endD = new Date(r.To+'T00:00:00'); endD.setDate(endD.getDate()+1);
-  const end = endD.toISOString().slice(0,10).replace(/-/g,'');
-  const details = ['Employee: '+r.Name,'Emp ID: '+r['Emp ID'],'Leave type: '+r['Leave Type'],
-    'Purpose: '+r.Purpose, r.Rejoin ? 'Rejoin: '+fmtDate(r.Rejoin) : '', 'Ref: '+r.ID].filter(Boolean).join('\n');
-  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${start}/${end}&details=${encodeURIComponent(details)}&sf=true&output=xml`;
-}
-
-// ── Form ───────────────────────────────────────────────────────
-const today = new Date().toISOString().slice(0,10);
-['f-from','f-to','f-rejoin'].forEach(id => document.getElementById(id).min = today);
-
-function syncDateMin() {
-  const v = document.getElementById('f-from').value;
-  if (v) { document.getElementById('f-to').min = v; document.getElementById('f-rejoin').min = v; }
+function toGCalDate(s){return s.replace(/-/g,'');}
+function buildCalUrl(r){
+  var title=encodeURIComponent(r.Name+' Leave');
+  var start=toGCalDate(r.From);
+  var ed=new Date(r.To+'T00:00:00'); ed.setDate(ed.getDate()+1);
+  var end=[ed.getFullYear(),String(ed.getMonth()+1).padStart(2,'0'),String(ed.getDate()).padStart(2,'0')].join('');
+  var details=['Employee: '+r.Name,'Emp ID: '+r['Emp ID'],'Leave type: '+r['Leave Type'],'Purpose: '+r.Purpose,r.Rejoin?'Rejoin: '+fmtDate(r.Rejoin):'','Ref: '+r.ID].filter(Boolean).join('\n');
+  return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text='+title+'&dates='+start+'/'+end+'&details='+encodeURIComponent(details)+'&sf=true&output=xml';
 }
 
-function livePreview() {
-  const name = document.getElementById('f-name').value.trim();
-  const from = document.getElementById('f-from').value;
-  const to = document.getElementById('f-to').value;
-  const type = document.getElementById('f-type').value;
-  const strip = document.getElementById('preview-strip');
-  if (name && from && to) {
+// ── KEY FIX: use script tags to bypass CORS ───────────────────
+// Google Apps Script doesn't send proper CORS headers for fetch()
+// Using a dynamic <script> tag (JSONP-style) works around this completely
+function callScript(params, callback) {
+  var url = SCRIPT_URL + '?' + Object.keys(params).map(function(k){
+    return encodeURIComponent(k)+'='+encodeURIComponent(params[k]);
+  }).join('&');
+  url += '&t='+Date.now(); // cache bust
+
+  var script = document.createElement('script');
+  var cbName = '_cb_'+Date.now()+'_'+Math.floor(Math.random()*10000);
+  url += '&callback='+cbName;
+
+  window[cbName] = function(data) {
+    delete window[cbName];
+    document.body.removeChild(script);
+    callback(null, data);
+  };
+  script.onerror = function() {
+    delete window[cbName];
+    if(document.body.contains(script)) document.body.removeChild(script);
+    callback(new Error('Script load failed'));
+  };
+  script.src = url;
+  document.body.appendChild(script);
+}
+
+// Fallback: plain fetch with no-cors if JSONP not available
+function callScriptFetch(params, callback) {
+  var url = SCRIPT_URL + '?' + Object.keys(params).map(function(k){
+    return encodeURIComponent(k)+'='+encodeURIComponent(params[k]);
+  }).join('&') + '&t='+Date.now();
+
+  fetch(url)
+    .then(function(r){ return r.json(); })
+    .then(function(d){ callback(null, d); })
+    .catch(function(e){ callback(e); });
+}
+
+// ── Date setup ─────────────────────────────────────────────────
+var today = new Date().toISOString().slice(0,10);
+document.getElementById('f-from').min = today;
+document.getElementById('f-to').min = today;
+document.getElementById('f-rejoin').min = today;
+
+function syncMin(){
+  var v=document.getElementById('f-from').value;
+  if(v){document.getElementById('f-to').min=v;document.getElementById('f-rejoin').min=v;}
+}
+
+// ── Live preview ───────────────────────────────────────────────
+function livePreview(){
+  var name=document.getElementById('f-name').value.trim();
+  var from=document.getElementById('f-from').value;
+  var to=document.getElementById('f-to').value;
+  var type=document.getElementById('f-type').value;
+  var strip=document.getElementById('preview-strip');
+  if(name&&from&&to){
     strip.classList.add('show');
-    const days = daysBetween(from, to);
-    document.getElementById('prev-name').textContent = name + ' — Leave';
-    document.getElementById('prev-meta').textContent =
-      fmtDate(from) + ' → ' + fmtDate(to) + ' · ' + days + ' day' + (days>1?'s':'') + (type?' · '+type:'');
+    var days=daysBetween(from,to);
+    document.getElementById('prev-name').textContent=name+' — Leave';
+    document.getElementById('prev-meta').textContent=fmtDate(from)+' → '+fmtDate(to)+' · '+days+' day'+(days>1?'s':'')+(type?' · '+type:'');
   } else {
     strip.classList.remove('show');
   }
 }
 
-function validate() {
-  let ok = true;
-  [['f-name','e-name',v=>v.trim().length>0],
-   ['f-empid','e-empid',v=>v.trim().length>0],
-   ['f-from','e-from',v=>v.length>0],
-   ['f-to','e-to',v=>{ const f=document.getElementById('f-from').value; return v.length>0&&v>=f; }],
-   ['f-type','e-type',v=>v.length>0],
-   ['f-purpose','e-purpose',v=>v.trim().length>0]
-  ].forEach(([id,eid,fn])=>{
-    const el=document.getElementById(id), err=document.getElementById(eid), valid=fn(el.value);
-    el.classList.toggle('err',!valid); err.classList.toggle('show',!valid);
-    if(!valid) ok=false;
+// ── Validation ─────────────────────────────────────────────────
+function validate(){
+  var ok=true;
+  [['f-name','e-name',function(v){return v.trim().length>0;}],
+   ['f-empid','e-empid',function(v){return v.trim().length>0;}],
+   ['f-from','e-from',function(v){return v.length>0;}],
+   ['f-to','e-to',function(v){var f=document.getElementById('f-from').value;return v.length>0&&v>=f;}],
+   ['f-type','e-type',function(v){return v.length>0;}],
+   ['f-purpose','e-purpose',function(v){return v.trim().length>0;}]
+  ].forEach(function(item){
+    var el=document.getElementById(item[0]),err=document.getElementById(item[1]),valid=item[2](el.value);
+    el.classList.toggle('err',!valid);err.classList.toggle('show',!valid);
+    if(!valid)ok=false;
   });
-  const rejoin=document.getElementById('f-rejoin').value, to=document.getElementById('f-to').value;
-  const rEl=document.getElementById('f-rejoin'), rErr=document.getElementById('e-rejoin');
+  var rejoin=document.getElementById('f-rejoin').value,to=document.getElementById('f-to').value;
+  var rEl=document.getElementById('f-rejoin'),rErr=document.getElementById('e-rejoin');
   if(rejoin&&to&&rejoin<=to){rEl.classList.add('err');rErr.classList.add('show');ok=false;}
   else{rEl.classList.remove('err');rErr.classList.remove('show');}
   return ok;
 }
 
-async function submitRequest() {
-  if (!validate()) return;
-  if (!isConfigured) { alert('Apps Script URL not configured yet. See README.md.'); return; }
+// ── Submit ─────────────────────────────────────────────────────
+function submitRequest(){
+  if(!validate()) return;
+  if(SCRIPT_URL==='YOUR_APPS_SCRIPT_URL_HERE'){
+    showFormError('Apps Script URL not configured. Please follow the README setup steps.');
+    return;
+  }
+  var btn=document.getElementById('submit-btn');
+  btn.disabled=true;
+  btn.innerHTML='<div class="spinner"></div> Submitting…';
+  hideFormError();
 
-  const btn = document.getElementById('submit-btn');
-  btn.disabled = true;
-  btn.innerHTML = '<div class="spinner"></div> Submitting…';
-
-  const payload = {
+  var params = {
     action: 'submit',
     name: document.getElementById('f-name').value.trim(),
     empId: document.getElementById('f-empid').value.trim(),
@@ -459,182 +441,156 @@ async function submitRequest() {
     to: document.getElementById('f-to').value,
     rejoin: document.getElementById('f-rejoin').value,
     type: document.getElementById('f-type').value,
-    purpose: document.getElementById('f-purpose').value.trim(),
+    purpose: document.getElementById('f-purpose').value.trim()
   };
 
-  try {
-    const res = await fetch(SCRIPT_URL, { method:'POST', body: JSON.stringify(payload) });
-    const data = await res.json();
-    if (data.success) {
-      document.getElementById('form-body').style.display = 'none';
-      document.getElementById('ref-display').textContent = data.id;
-      document.getElementById('success-box').classList.add('show');
-    } else {
-      alert('Error: ' + (data.error || 'Unknown error'));
+  callScriptFetch(params, function(err, data) {
+    btn.disabled=false;
+    btn.innerHTML='<svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Submit leave request';
+    if(err || !data || !data.success){
+      showFormError('Could not reach the server. Check your Apps Script URL is correct and deployed as "Anyone" access.');
+      return;
     }
-  } catch(e) {
-    alert('Network error — check your Apps Script URL and CORS settings.');
-  } finally {
-    btn.disabled = false;
-    btn.innerHTML = '<svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Submit leave request';
-  }
+    document.getElementById('form-body').style.display='none';
+    document.getElementById('ref-display').textContent=data.id;
+    document.getElementById('success-box').classList.add('show');
+  });
 }
 
-function resetForm() {
-  ['f-name','f-empid','f-from','f-to','f-rejoin','f-purpose','f-type'].forEach(id=>{
-    const el=document.getElementById(id); el.value=''; el.classList.remove('err');
+function showFormError(msg){
+  var el=document.getElementById('form-error');
+  el.textContent=msg; el.classList.add('show');
+}
+function hideFormError(){
+  document.getElementById('form-error').classList.remove('show');
+}
+
+function resetForm(){
+  ['f-name','f-empid','f-from','f-to','f-rejoin','f-purpose','f-type'].forEach(function(id){
+    var el=document.getElementById(id);el.value='';el.classList.remove('err');
   });
-  document.querySelectorAll('.emsg').forEach(e=>e.classList.remove('show'));
+  document.querySelectorAll('.emsg').forEach(function(e){e.classList.remove('show');});
   document.getElementById('preview-strip').classList.remove('show');
   document.getElementById('form-body').style.display='';
   document.getElementById('success-box').classList.remove('show');
+  hideFormError();
 }
 
 // ── Dashboard ──────────────────────────────────────────────────
-async function loadRequests() {
-  if (!isConfigured) {
-    renderList([]);
+function loadRequests(){
+  if(SCRIPT_URL==='YOUR_APPS_SCRIPT_URL_HERE'){
+    document.getElementById('req-list').innerHTML='<div class="empty"><p style="color:var(--danger)">Apps Script URL not set. Open index.html and paste your URL.</p></div>';
+    ['st-total','st-pending','st-approved','st-rejected'].forEach(function(id){document.getElementById(id).textContent='0';});
     return;
   }
-  const btn = document.getElementById('refresh-btn');
+  var btn=document.getElementById('refresh-btn');
   btn.classList.add('spinning');
-  document.getElementById('req-list').innerHTML =
-    '<div class="loading-row"><div class="ld-spin"></div> Loading requests…</div>';
-  try {
-    const res = await fetch(SCRIPT_URL + '?t=' + Date.now());
-    const data = await res.json();
-    if (data.success) {
-      allRequests = (data.data || []).reverse();
-      renderList(allRequests);
-    } else {
-      document.getElementById('req-list').innerHTML = '<div class="empty"><p style="color:var(--danger)">Error loading: ' + (data.error||'unknown') + '</p></div>';
+  document.getElementById('req-list').innerHTML='<div class="loading-row"><div class="ld-spin"></div> Loading requests…</div>';
+
+  callScriptFetch({t: Date.now()}, function(err, data) {
+    btn.classList.remove('spinning');
+    if(err || !data || !data.success){
+      document.getElementById('req-list').innerHTML='<div class="empty"><p style="color:var(--danger)">Could not load requests. Make sure your Apps Script is deployed correctly (Who has access: Anyone).</p></div>';
+      return;
     }
-  } catch(e) {
-    document.getElementById('req-list').innerHTML = '<div class="empty"><p style="color:var(--danger)">Could not reach Apps Script. Check URL and deployment.</p></div>';
-  }
-  btn.classList.remove('spinning');
+    allRequests = (data.data||[]).reverse();
+    renderList();
+  });
 }
 
-function setFilter(f, el) {
-  activeFilter = f;
-  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('active'));
+function setFilter(f,el){
+  activeFilter=f;
+  document.querySelectorAll('.pill').forEach(function(p){p.classList.remove('active');});
   el.classList.add('active');
-  renderList(allRequests);
+  renderList();
+}
+function toggleCard(id){
+  expanded.has(id)?expanded.delete(id):expanded.add(id);
+  renderList();
 }
 
-function toggleCard(id) {
-  expanded.has(id) ? expanded.delete(id) : expanded.add(id);
-  renderList(allRequests);
-}
+function renderList(){
+  var all=allRequests;
+  var pending=all.filter(function(r){return r.Status==='pending';}).length;
+  var approved=all.filter(function(r){return r.Status==='approved';}).length;
+  var rejected=all.filter(function(r){return r.Status==='rejected';}).length;
+  document.getElementById('st-total').textContent=all.length;
+  document.getElementById('st-pending').textContent=pending;
+  document.getElementById('st-approved').textContent=approved;
+  document.getElementById('st-rejected').textContent=rejected;
 
-function renderList(all) {
-  const pending  = all.filter(r=>r.Status==='pending').length;
-  const approved = all.filter(r=>r.Status==='approved').length;
-  const rejected = all.filter(r=>r.Status==='rejected').length;
-  document.getElementById('st-total').textContent   = all.length;
-  document.getElementById('st-pending').textContent  = pending;
-  document.getElementById('st-approved').textContent = approved;
-  document.getElementById('st-rejected').textContent = rejected;
+  var filtered=activeFilter==='all'?all:all.filter(function(r){return r.Status===activeFilter;});
+  var list=document.getElementById('req-list');
 
-  const filtered = activeFilter==='all' ? all : all.filter(r=>r.Status===activeFilter);
-  const list = document.getElementById('req-list');
-
-  if (filtered.length === 0) {
-    list.innerHTML = `<div class="empty">
-      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      <p>${all.length===0 ? 'No requests yet. Share the link with your team!' : 'No '+activeFilter+' requests.'}</p>
-    </div>`;
+  if(filtered.length===0){
+    list.innerHTML='<div class="empty"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><p>'+(all.length===0?'No requests yet — share the link with your team!':'No '+activeFilter+' requests.')+'</p></div>';
     return;
   }
 
-  list.innerHTML = filtered.map(r => {
-    const isOpen = expanded.has(r.ID);
-    const days = r.From && r.To ? daysBetween(r.From, r.To) : 1;
-    const statusLabel = r.Status.charAt(0).toUpperCase()+r.Status.slice(1);
-    const actedDate = r['Acted At'] ? fmtDate(r['Acted At']) : '';
-
-    return `<div class="rcard s-${r.Status}">
-      <div class="rc-head" onclick="toggleCard('${r.ID}')">
-        <div class="avatar">${initials(r.Name)}</div>
-        <div class="rc-main">
-          <div class="rc-name">${r.Name}</div>
-          <div class="rc-meta">${r['Emp ID']} · ${fmtDate(r.From)} → ${fmtDate(r.To)} · ${days} day${days>1?'s':''} · ${r['Leave Type']}</div>
-        </div>
-        <div class="rc-right">
-          <span class="badge b-${r.Status}">${statusLabel}</span>
-          <button class="xbtn ${isOpen?'open':''}" aria-label="Toggle">
-            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-        </div>
-      </div>
-      <div class="rc-body ${isOpen?'open':''}">
-        <div class="detail-grid">
-          <div><div class="dl">From</div><div class="dv">${fmtDate(r.From)}</div></div>
-          <div><div class="dl">To</div><div class="dv">${fmtDate(r.To)}</div></div>
-          <div><div class="dl">Days</div><div class="dv">${days} day${days>1?'s':''}</div></div>
-          <div><div class="dl">Rejoin</div><div class="dv">${fmtDate(r.Rejoin)}</div></div>
-          <div><div class="dl">Type</div><div class="dv">${r['Leave Type']}</div></div>
-          <div><div class="dl">Submitted</div><div class="dv">${fmtDate(r['Submitted At'])}</div></div>
-          <div><div class="dl">Reference</div><div class="dv" style="font-family:'DM Mono',monospace;font-size:12px">${r.ID}</div></div>
-          ${actedDate ? `<div><div class="dl">${statusLabel} on</div><div class="dv">${actedDate}</div></div>` : ''}
-        </div>
-        <div class="purpose-box">${r.Purpose}</div>
-        <div class="act-row">
-          ${r.Status==='pending' ? `
-            <button class="abtn btn-approve" onclick="doAction('${r.ID}','approve')">
-              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              Approve &amp; add to calendar
-            </button>
-            <button class="abtn btn-reject" onclick="doAction('${r.ID}','reject')">
-              <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-              Reject
-            </button>
-          ` : r.Status==='approved' ? `
-            <button class="abtn btn-cal" onclick="openCal('${r.ID}')">
-              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              Open in Google Calendar
-            </button>
-            <span class="anote">Approved${actedDate?' on '+actedDate:''}</span>
-          ` : `
-            <span class="anote" style="color:var(--danger)">Rejected${actedDate?' on '+actedDate:''}</span>
-            <button class="abtn btn-undo" onclick="doAction('${r.ID}','undo')">Undo</button>
-          `}
-        </div>
-      </div>
-    </div>`;
+  list.innerHTML=filtered.map(function(r){
+    var isOpen=expanded.has(r.ID);
+    var days=r.From&&r.To?daysBetween(r.From,r.To):1;
+    var statusLabel=r.Status.charAt(0).toUpperCase()+r.Status.slice(1);
+    var actedDate=r['Acted At']?fmtDate(r['Acted At']):'';
+    return '<div class="rcard s-'+r.Status+'">'
+      +'<div class="rc-head" onclick="toggleCard(\''+r.ID+'\')">'
+      +'<div class="avatar">'+initials(r.Name)+'</div>'
+      +'<div class="rc-main">'
+      +'<div class="rc-name">'+r.Name+'</div>'
+      +'<div class="rc-meta">'+r['Emp ID']+' · '+fmtDate(r.From)+' → '+fmtDate(r.To)+' · '+days+' day'+(days>1?'s':'')+' · '+r['Leave Type']+'</div>'
+      +'</div>'
+      +'<div class="rc-right">'
+      +'<span class="badge b-'+r.Status+'">'+statusLabel+'</span>'
+      +'<button class="xbtn '+(isOpen?'open':'')+'" aria-label="Toggle"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>'
+      +'</div></div>'
+      +'<div class="rc-body '+(isOpen?'open':'')+'">'
+      +'<div class="detail-grid">'
+      +'<div><div class="dl">From</div><div class="dv">'+fmtDate(r.From)+'</div></div>'
+      +'<div><div class="dl">To</div><div class="dv">'+fmtDate(r.To)+'</div></div>'
+      +'<div><div class="dl">Days</div><div class="dv">'+days+' day'+(days>1?'s':'')+'</div></div>'
+      +'<div><div class="dl">Rejoin</div><div class="dv">'+fmtDate(r.Rejoin)+'</div></div>'
+      +'<div><div class="dl">Type</div><div class="dv">'+r['Leave Type']+'</div></div>'
+      +'<div><div class="dl">Submitted</div><div class="dv">'+fmtDate(r['Submitted At'])+'</div></div>'
+      +'<div><div class="dl">Reference</div><div class="dv" style="font-family:\'DM Mono\',monospace;font-size:12px">'+r.ID+'</div></div>'
+      +(actedDate?'<div><div class="dl">'+statusLabel+' on</div><div class="dv">'+actedDate+'</div></div>':'')
+      +'</div>'
+      +'<div class="purpose-box">'+r.Purpose+'</div>'
+      +'<div class="act-row">'
+      +(r.Status==='pending'
+        ?'<button class="abtn btn-approve" onclick="doAction(\''+r.ID+'\',\'approve\')"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Approve &amp; add to calendar</button>'
+         +'<button class="abtn btn-reject" onclick="doAction(\''+r.ID+'\',\'reject\')"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Reject</button>'
+        :r.Status==='approved'
+        ?'<button class="abtn btn-cal" onclick="openCal(\''+r.ID+'\')"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Open in Google Calendar</button>'
+         +'<span class="anote">Approved'+(actedDate?' on '+actedDate:'')+'</span>'
+        :'<span class="anote" style="color:var(--danger)">Rejected'+(actedDate?' on '+actedDate:'')+'</span>'
+         +'<button class="abtn btn-undo" onclick="doAction(\''+r.ID+'\',\'undo\')">Undo</button>')
+      +'</div></div></div>';
   }).join('');
 }
 
-async function doAction(id, action) {
-  const req = allRequests.find(r => r.ID === id);
-  try {
-    const res = await fetch(SCRIPT_URL, { method:'POST', body: JSON.stringify({ action, id }) });
-    const data = await res.json();
-    if (data.success) {
-      if (action === 'approve' && req) window.open(buildCalUrl(req), '_blank');
-      await loadRequests();
-    } else {
-      alert('Error: ' + (data.error || 'Unknown'));
-    }
-  } catch(e) {
-    alert('Network error');
-  }
+function doAction(id, action){
+  var req=allRequests.find(function(r){return r.ID===id;});
+  callScriptFetch({action:action, id:id}, function(err,data){
+    if(err||!data||!data.success){ alert('Error. Please try again.'); return; }
+    if(action==='approve'&&req) window.open(buildCalUrl(req),'_blank');
+    loadRequests();
+  });
 }
 
-function openCal(id) {
-  const req = allRequests.find(r => r.ID === id);
-  if (req) window.open(buildCalUrl(req), '_blank');
+function openCal(id){
+  var req=allRequests.find(function(r){return r.ID===id;});
+  if(req) window.open(buildCalUrl(req),'_blank');
 }
 
-function copyLink(btn) {
-  const url = window.location.href.split('#')[0];
-  navigator.clipboard.writeText(url).then(()=>{
-    btn.textContent='Copied!'; setTimeout(()=>btn.textContent='Copy', 2000);
-  }).catch(()=>window.prompt('Copy this link:',url));
+function copyLink(btn){
+  var url=window.location.href.split('?')[0].split('#')[0];
+  navigator.clipboard.writeText(url).then(function(){
+    btn.textContent='Copied!'; setTimeout(function(){btn.textContent='Copy';},2000);
+  }).catch(function(){window.prompt('Copy this link:',url);});
 }
 
-// Init
-document.getElementById('share-url').value = window.location.href.split('#')[0];
+// Init share url
+document.getElementById('share-url').value = window.location.href.split('?')[0].split('#')[0];
 </script>
 </body>
 </html>
